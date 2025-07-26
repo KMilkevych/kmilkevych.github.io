@@ -1,0 +1,121 @@
+/* Overall body settings */
+body {
+
+    /* Settings required for correct background image */
+    width: 100%;
+    margin: 0;
+}
+
+/* Background setup */
+#background {
+    position: fixed;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100dvh;
+    z-index: -1;
+}
+
+/* Animated backdrop settings */
+#trace {
+    width: 100%;
+    max-width: 1200px;
+}
+
+/* Main content of the page */
+#website {
+
+    /* Centering content */
+    margin: 0 auto;
+    max-width: 84em;
+
+    /* Grid layout */
+    display: grid;
+    grid-template-columns: 1fr 50em 1fr;
+    grid-template-areas:
+        "header header header"
+        "leftbar main rightbar"
+        "leftbar footer rightbar";
+    column-gap: 1em;
+    row-gap: 1em;
+}
+
+/* Utility class for column content */
+.container-column {
+    display: flex;
+    flex-flow: column nowrap;
+    row-gap: 1em;
+}
+
+/* Placing individual tags inside grid areas */
+header {
+    grid-area: header;
+
+    /* Flexbox for contents */
+    display: inline-flex;
+    flex-flow: row nowrap;
+    align-items: center;
+    justify-content: space-evenly;
+}
+
+#leftbar {
+    grid-area: leftbar;
+}
+
+#rightbar {
+    grid-area: rightbar;
+}
+
+main {
+    grid-area: main;
+}
+
+footer {
+    grid-area: footer;
+}
+
+/* Tablet layout */
+@media only screen and (max-width: 1300px) {
+
+    #website {
+        margin: 0 auto;
+        max-width: 57em;
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        grid-template-areas:
+            "header header"
+            "leftbar rightbar"
+            "main main"
+            "footer footer";
+        column-gap: 1em;
+        row-gap: 1em;
+    }
+
+    #leftbar {
+        justify-self: stretch;
+        align-self: stretch;
+    }
+
+    #rightbar {
+        justify-self: stretch;
+        align-self: start;
+    }
+}
+
+/* Mobile layout */
+@media only screen and (max-width: 680px) {
+
+    #website {
+        margin: 0 auto;
+        max-width: 57em;
+        display: grid;
+        grid-template-columns: 1fr;
+        grid-template-areas:
+            "header"
+            "leftbar"
+            "rightbar"
+            "main"
+            "footer";
+        row-gap: 1em;
+    }
+}
